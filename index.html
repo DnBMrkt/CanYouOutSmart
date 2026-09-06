@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Outsmart the Game</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- =========================================
+             HEADER
+        ========================================== -->
+
+        <header class="header">
+
+            <div class="logo">
+                🧠 <span>OUTSMART</span>
+            </div>
+
+            <button
+                id="themeBtn"
+                type="button"
+                aria-label="Change theme"
+            >
+                🌙
+            </button>
+
+        </header>
+
+
+        <!-- =========================================
+             HOME SCREEN
+        ========================================== -->
+
+        <section
+            id="homeScreen"
+            class="screen active"
+        >
+
+            <div class="hero">
+
+                <div class="hero-icon">
+                    🧠
+                </div>
+
+                <p class="eyebrow">
+                    10 CHALLENGES • 5–8 MINUTES
+                </p>
+
+                <h1>
+                    OUTSMART<br>
+                    THE GAME
+                </h1>
+
+                <p>
+                    Think fast. Look closer.
+                    Don't trust your first answer.
+                </p>
+
+                <div class="home-stats">
+
+                    <div class="home-stat">
+                        <strong>10</strong>
+                        <span>Challenges</span>
+                    </div>
+
+                    <div class="home-stat">
+                        <strong>3</strong>
+                        <span>Lives</span>
+                    </div>
+
+                    <div class="home-stat">
+                        <strong>∞</strong>
+                        <span>Replay</span>
+                    </div>
+
+                </div>
+
+                <button
+                    id="startBtn"
+                    type="button"
+                >
+                    START GAME →
+                </button>
+
+                <div class="best-score-home">
+                    Best Score:
+                    <strong id="bestScoreHome">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             GAME SCREEN
+        ========================================== -->
+
+        <section
+            id="gameScreen"
+            class="screen"
+        >
+
+            <!-- GAME STATUS -->
+
+            <div class="game-status">
+
+                <div class="level-info">
+
+                    <span class="small-label">
+                        LEVEL
+                    </span>
+
+                    <strong id="levelNumber">
+                        01
+                    </strong>
+
+                    <span class="level-total">
+                        / 10
+                    </span>
+
+                </div>
+
+
+                <div class="game-score">
+
+                    <span>
+                        XP
+                    </span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-container">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar"
+                ></div>
+
+            </div>
+
+
+            <!-- LIVES / COMBO / TIMER -->
+
+            <div class="game-info">
+
+                <div class="lives">
+
+                    <span id="life1">❤️</span>
+                    <span id="life2">❤️</span>
+                    <span id="life3">❤️</span>
+
+                </div>
+
+                <div
+                    id="combo"
+                    class="combo"
+                >
+                    🔥 ×0
+                </div>
+
+                <div
+                    id="timer"
+                    class="timer"
+                >
+                    20
+                </div>
+
+            </div>
+
+
+            <!-- CHALLENGE CARD -->
+
+            <div class="question-card">
+
+                <div
+                    id="challengeType"
+                    class="challenge-type"
+                >
+                    🔢 PATTERN
+                </div>
+
+
+                <div
+                    id="questionIcon"
+                    class="question-icon"
+                >
+                    🔢
+                </div>
+
+
+                <h2 id="questionText">
+                    Loading challenge...
+                </h2>
+
+
+                <!-- VISUAL / PUZZLE AREA -->
+
+                <div
+                    id="challengeArea"
+                    class="challenge-area"
+                >
+
+                    <!-- JavaScript akan memasukkan
+                         puzzle di sini -->
+
+                </div>
+
+
+                <!-- ANSWER OPTIONS -->
+
+                <div
+                    id="options"
+                    class="options"
+                >
+
+                    <button
+                        class="option"
+                        type="button"
+                        data-answer="0"
+                    >
+                        Option A
+                    </button>
+
+                    <button
+                        class="option"
+                        type="button"
+                        data-answer="1"
+                    >
+                        Option B
+                    </button>
+
+                    <button
+                        class="option"
+                        type="button"
+                        data-answer="2"
+                    >
+                        Option C
+                    </button>
+
+                    <button
+                        class="option"
+                        type="button"
+                        data-answer="3"
+                    >
+                        Option D
+                    </button>
+
+                </div>
+
+
+                <!-- FEEDBACK -->
+
+                <div
+                    id="feedback"
+                    class="feedback"
+                ></div>
+
+            </div>
+
+
+            <!-- XP POPUP -->
+
+            <div
+                id="xpPopup"
+                class="xp-popup"
+            >
+                +100 XP
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             GAME OVER SCREEN
+        ========================================== -->
+
+        <section
+            id="gameOverScreen"
+            class="screen"
+        >
+
+            <div class="result-card game-over-card">
+
+                <div class="result-icon">
+                    💥
+                </div>
+
+                <p class="result-label">
+                    GAME OVER
+                </p>
+
+                <h2>
+                    Almost there.
+                </h2>
+
+                <p>
+                    You ran out of lives,
+                    but your brain isn't finished yet.
+                </p>
+
+                <div class="final-score-small">
+
+                    <span>
+                        SCORE
+                    </span>
+
+                    <strong id="gameOverScore">
+                        0
+                    </strong>
+
+                </div>
+
+                <button
+                    id="retryGameOver"
+                    type="button"
+                    class="primary-btn"
+                >
+                    TRY AGAIN
+                </button>
+
+                <button
+                    id="homeGameOver"
+                    type="button"
+                    class="secondary-btn"
+                >
+                    BACK TO HOME
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             RESULT SCREEN
+        ========================================== -->
+
+        <section
+            id="resultScreen"
+            class="screen"
+        >
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🧠
+                </div>
+
+                <p class="result-label">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2 id="resultTitle">
+                    THE STRATEGIST
+                </h2>
+
+                <p id="resultDescription">
+                    Your result is being calculated...
+                </p>
+
+
+                <!-- FINAL SCORE -->
+
+                <div class="final-score">
+
+                    <span>
+                        FINAL SCORE
+                    </span>
+
+                    <strong id="finalScore">
+                        0
+                    </strong>
+
+                    <small>
+                        XP
+                    </small>
+
+                </div>
+
+
+                <!-- RANK -->
+
+                <div class="rank-box">
+
+                    <span>
+                        YOUR RANK
+                    </span>
+
+                    <strong id="rank">
+                        S
+                    </strong>
+
+                </div>
+
+
+                <!-- PERSONALITY / BRAIN TYPE -->
+
+                <div class="brain-type">
+
+                    <span>
+                        YOUR BRAIN TYPE
+                    </span>
+
+                    <strong id="brainType">
+                        THE STRATEGIST
+                    </strong>
+
+                </div>
+
+
+                <!-- SKILLS -->
+
+                <div class="skills">
+
+                    <h3>
+                        YOUR SKILLS
+                    </h3>
+
+
+                    <div class="skill">
+
+                        <div class="skill-top">
+
+                            <span>
+                                🧩 Logic
+                            </span>
+
+                            <strong id="logicScore">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="score-track">
+
+                            <div
+                                id="logicBar"
+                                class="score-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-top">
+
+                            <span>
+                                🧠 Memory
+                            </span>
+
+                            <strong id="memoryScore">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="score-track">
+
+                            <div
+                                id="memoryBar"
+                                class="score-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-top">
+
+                            <span>
+                                ⚡ Reaction
+                            </span>
+
+                            <strong id="reactionScore">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="score-track">
+
+                            <div
+                                id="reactionBar"
+                                class="score-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-top">
+
+                            <span>
+                                👀 Observation
+                            </span>
+
+                            <strong id="observationScore">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="score-track">
+
+                            <div
+                                id="observationBar"
+                                class="score-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUOTE -->
+
+                <div
+                    id="resultQuote"
+                    class="result-quote"
+                >
+                    "Your first answer isn't
+                    always your best answer."
+                </div>
+
+
+                <!-- ACHIEVEMENTS -->
+
+                <div class="achievements">
+
+                    <h3>
+                        🏆 ACHIEVEMENTS
+                    </h3>
+
+                    <div
+                        id="achievementList"
+                        class="achievement-list"
+                    >
+
+                        <div class="achievement locked">
+                            🔒 Perfect 10
+                        </div>
+
+                        <div class="achievement locked">
+                            🔒 Lightning
+                        </div>
+
+                        <div class="achievement locked">
+                            🔒 No Mistakes
+                        </div>
+
+                        <div class="achievement locked">
+                            🔒 Combo Master
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BEST SCORE -->
+
+                <div class="best-score">
+
+                    <span>
+                        PERSONAL BEST
+                    </span>
+
+                    <strong id="bestScore">
+                        0 XP
+                    </strong>
+
+                </div>
+
+
+                <!-- RESULT BUTTONS -->
+
+                <div class="result-buttons">
+
+                    <button
+                        id="retryBtn"
+                        type="button"
+                        class="primary-btn"
+                    >
+                        🔄 PLAY AGAIN
+                    </button>
+
+                    <button
+                        id="shareBtn"
+                        type="button"
+                        class="secondary-btn"
+                    >
+                        📤 SHARE RESULT
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="shareStatus"
+                    class="share-status"
+                ></p>
+
+
+                <button
+                    id="homeBtn"
+                    type="button"
+                    class="text-btn"
+                >
+                    ← Back to Home
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
